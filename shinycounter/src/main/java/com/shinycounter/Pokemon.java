@@ -1,10 +1,8 @@
 package com.shinycounter;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-class Pokemon {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Pokemon {
     int pokedex_id;
     int generation;
     Name name;
@@ -13,9 +11,10 @@ class Pokemon {
     Types types;
     String egg_groups;
     Formes formes;
+    Boolean isDanger;
 
     public Pokemon(String egg_groups, Formes formes, int generation, Name name, int pokedex_id, Sprites sprites,
-            Talents talents, Types types) {
+            Talents talents, Types types, Boolean isDanger) {
         this.egg_groups = egg_groups;
         this.formes = formes;
         this.generation = generation;
@@ -24,6 +23,7 @@ class Pokemon {
         this.sprites = sprites;
         this.talents = talents;
         this.types = types;
+        this.isDanger = isDanger;
     }
 
     public int getPokedex_id() {
@@ -89,4 +89,14 @@ class Pokemon {
     public void setFormes(Formes formes) {
         this.formes = formes;
     }
+
+    public Boolean getIsDanger() {
+        return isDanger;
+    }
+
+    public void setIsDanger(Boolean isDanger) {
+        this.isDanger = isDanger;
+    }
+
+    
 }
