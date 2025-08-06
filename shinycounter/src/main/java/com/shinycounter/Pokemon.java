@@ -1,4 +1,7 @@
 package com.shinycounter;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -7,22 +10,23 @@ public class Pokemon {
     int generation;
     Name name;
     Sprites sprites;
-    Talents talents;
-    Types types;
-    String egg_groups;
+    List<Talent> talents;
+    List<Type> types;
+    String egg_group;
     Formes formes;
     Boolean isDanger;
 
+    @JsonCreator
     public Pokemon(String egg_groups, Formes formes, int generation, Name name, int pokedex_id, Sprites sprites,
-            Talents talents, Types types, Boolean isDanger) {
-        this.egg_groups = egg_groups;
+            List<Talent> talent, List<Type> type, Boolean isDanger) {
+        this.egg_group = egg_groups;
         this.formes = formes;
         this.generation = generation;
         this.name = name;
         this.pokedex_id = pokedex_id;
         this.sprites = sprites;
-        this.talents = talents;
-        this.types = types;
+        this.talents = talent;
+        this.types = type;
         this.isDanger = isDanger;
     }
 
@@ -58,28 +62,28 @@ public class Pokemon {
         this.sprites = sprites;
     }
 
-    public Talents getTalents() {
+    public List<Talent> getTalents() {
         return talents;
     }
 
-    public void setTalents(Talents talents) {
+    public void setTalents(List<Talent> talents) {
         this.talents = talents;
     }
 
-    public Types getTypes() {
+    public List<Type> getTypes() {
         return types;
     }
 
-    public void setTypes(Types types) {
+    public void setTypes(List<Type> types) {
         this.types = types;
     }
 
     public String getEgg_groups() {
-        return egg_groups;
+        return egg_group;
     }
 
-    public void setEgg_groups(String egg_groups) {
-        this.egg_groups = egg_groups;
+    public void setEgg_groups(String egg_group) {
+        this.egg_group = egg_group;
     }
 
     public Formes getFormes() {

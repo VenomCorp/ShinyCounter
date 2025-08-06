@@ -1,9 +1,9 @@
 package com.shinycounter;
 
-public class Talents {
+public class Talent {
     String name;
 
-    public Talents(String name) {
+    public Talent(String name) {
         this.name = name;
     }
 

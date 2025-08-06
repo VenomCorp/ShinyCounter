@@ -1,9 +1,9 @@
 package com.shinycounter;
 
-public class Types {
+public class Type {
     String name;
 
-    public Types(String name) {
+    public Type(String name) {
         this.name = name;
     }
 
