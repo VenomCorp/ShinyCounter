@@ -1,11 +1,10 @@
 package com.shinycounter;
 
-public class Formes {
-    String region;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-    public Formes(String region) {
-        this.region = region;
-    }
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Formes {
+    private String region;
 
     public String getRegion() {
         return region;
@@ -13,5 +12,10 @@ public class Formes {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    @Override
+    public String toString() {
+        return region;
     }
 }

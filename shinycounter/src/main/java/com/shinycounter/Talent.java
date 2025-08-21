@@ -1,11 +1,10 @@
 package com.shinycounter;
 
-public class Talent {
-    String name;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-    public Talent(String name) {
-        this.name = name;
-    }
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Talent {
+    private String name;
 
     public String getName() {
         return name;
@@ -13,5 +12,10 @@ public class Talent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

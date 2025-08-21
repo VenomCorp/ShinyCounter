@@ -1,41 +1,36 @@
 package com.shinycounter;
+
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Pokemon {
-    int pokedex_id;
-    int generation;
-    Name name;
-    Sprites sprites;
-    List<Talent> talents;
-    List<Type> types;
-    String egg_group;
-    Formes formes;
-    Boolean isDanger;
 
-    @JsonCreator
-    public Pokemon(String egg_groups, Formes formes, int generation, Name name, int pokedex_id, Sprites sprites,
-            List<Talent> talent, List<Type> type, Boolean isDanger) {
-        this.egg_group = egg_groups;
-        this.formes = formes;
-        this.generation = generation;
-        this.name = name;
-        this.pokedex_id = pokedex_id;
-        this.sprites = sprites;
-        this.talents = talent;
-        this.types = type;
-        this.isDanger = isDanger;
+    @JsonProperty("pokedex_id")
+    private int pokedexId;
+
+    private int generation;
+    private Name name;
+    private Sprites sprites;
+    private List<Talent> talents;
+    private List<Type> types;
+
+    @JsonProperty("egg_groups")
+    private List<String> eggGroups;
+
+    private List<Formes> formes;
+
+    @JsonProperty("danger")
+    private Boolean isDanger;
+
+    public int getPokedexId() {
+        return pokedexId;
     }
 
-    public int getPokedex_id() {
-        return pokedex_id;
-    }
-
-    public void setPokedex_id(int pokedex_id) {
-        this.pokedex_id = pokedex_id;
+    public void setPokedex_id(int pokedexId) {
+        this.pokedexId = pokedexId;
     }
 
     public int getGeneration() {
@@ -78,19 +73,19 @@ public class Pokemon {
         this.types = types;
     }
 
-    public String getEgg_groups() {
-        return egg_group;
+    public List<String> getEgg_groups() {
+        return eggGroups;
     }
 
-    public void setEgg_groups(String egg_group) {
-        this.egg_group = egg_group;
+    public void setEgg_groups(List<String> eggGroup) {
+        this.eggGroups = eggGroup;
     }
 
-    public Formes getFormes() {
+    public List<Formes> getFormes() {
         return formes;
     }
 
-    public void setFormes(Formes formes) {
+    public void setFormes(List<Formes> formes) {
         this.formes = formes;
     }
 
@@ -102,5 +97,18 @@ public class Pokemon {
         this.isDanger = isDanger;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "pokedexId=" + pokedexId +
+                ", generation=" + generation +
+                ", name=" + name +
+                ", sprites=" + sprites +
+                ", types=" + types +
+                ", talents=" + talents +
+                ", eggGroups=" + eggGroups +
+                ", formes=" + formes +
+                '}';
+    }
+
 }

@@ -1,15 +1,9 @@
 package com.shinycounter;
 
 public class Name {
-    String fr;
-    String en;
-    String jp;
-
-    public Name(String en, String fr, String jp) {
-        this.en = en;
-        this.fr = fr;
-        this.jp = jp;
-    }
+    private String fr;
+    private String en;
+    private String jp;
 
     public String getFr() {
         return fr;
@@ -35,4 +29,8 @@ public class Name {
         this.jp = jp;
     }
 
+    @Override
+    public String toString() {
+        return "{fr='" + fr + "', en='" + en + "', jp='" + jp + "'}";
+    }
 }

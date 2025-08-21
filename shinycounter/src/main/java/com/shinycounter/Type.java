@@ -1,11 +1,10 @@
 package com.shinycounter;
 
-public class Type {
-    String name;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-    public Type(String name) {
-        this.name = name;
-    }
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Type {
+    private String name;
 
     public String getName() {
         return name;
@@ -13,6 +12,11 @@ public class Type {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
 }

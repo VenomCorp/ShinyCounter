@@ -1,20 +1,27 @@
 package com.shinycounter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Pokedex {
-    private List<Pokemon> pokedex;
+    private List<Pokemon> pokemons = new ArrayList<>();
 
-    public List<Pokemon> getPokedex() {
-        return pokedex;
+    public List<Pokemon> getPokemons() {
+        return pokemons;
     }
 
-    public void setPokedex(List<Pokemon> pokedex) {
-        this.pokedex = pokedex;
+    public void setPokemons(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
     }
 
+    public void addPokemon(Pokemon pokemon) {
+        this.pokemons.add(pokemon);
+    }
 
+    @Override
+    public String toString() {
+        return "Pokedex{" +
+                "pokemons=" + pokemons +
+                '}';
+    }
 }

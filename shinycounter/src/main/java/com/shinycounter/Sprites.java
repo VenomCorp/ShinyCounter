@@ -1,13 +1,11 @@
 package com.shinycounter;
 
-public class Sprites {
-    String regular;
-    String shiny;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-    public Sprites(String regular, String shiny) {
-        this.regular = regular;
-        this.shiny = shiny;
-    }
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Sprites {
+    private String regular;
+    private String shiny;
 
     public String getRegular() {
         return regular;
@@ -23,6 +21,11 @@ public class Sprites {
 
     public void setShiny(String shiny) {
         this.shiny = shiny;
+    }
+
+    @Override
+    public String toString() {
+        return "{regular='" + regular + "', shiny='" + shiny + "'}";
     }
 
 }
